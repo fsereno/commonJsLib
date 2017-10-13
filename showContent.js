@@ -8,10 +8,12 @@ function showContent(fScope) {
 	
 	$mainContent.fadeOut(fScope.config.fadeTime,function(){
 
+		var pageName = fScope.page.toLowerCase();
+
 		$(this).html('');
 		$(this).find('a').off();
 		
-		$(this).html(fScope.pages[fScope.page]);
+		$(this).html(fScope.pages[pageName]);
 		$pageWrap.height('auto');
 			
 		$mainContent.fadeIn(fScope.config.fadeTime, function() {
@@ -20,6 +22,7 @@ function showContent(fScope) {
 			require("./runPageScript.js")(fScope);
 			require("./initBLazy.js")(fScope);
 			require("./handlePageLinks.js")($mainContent);
+			require("./pageScroll.js")(fScope.config);
 
 		});
 	});	

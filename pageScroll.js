@@ -1,13 +1,17 @@
 
 function pageScroll(obj) {
 
-	$('a.'+obj.selectors[0].pageScroll).bind('click', function(event) {
-        var $anchor = $(this);
+    var doc = document.documentElement;
+    var top = (window.pageYOffset || doc.scrollTop)  - (doc.clientTop || 0);
+
+    if (top > 0) {
+
         $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
+            scrollTop: 0
+        }, obj.scrollUpSpeed, 'easeInOutExpo');
+
+    }
+  
 }
 
 module.exports = pageScroll;
