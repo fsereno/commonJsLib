@@ -1,7 +1,6 @@
 
 window.page_home = function (){
 
-	console.log('home page from browserify new')
     var config = require("../json/client.json");
 
 	var swiper = new Swiper('.swiper-container', {
